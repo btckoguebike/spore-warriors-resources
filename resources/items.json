@@ -1,0 +1,58 @@
+{
+    "items": [
+        {
+            "id": 1000,
+            "class": 0,
+            "quality": 16,
+            "random_weight": {
+                "min": 10,
+                "max": 15
+            },
+            "price": {
+                "min": 30,
+                "max": 45
+            },
+            "effect_pool": [
+                1,
+                2
+            ]
+        },
+        {
+            "id": 1001,
+            "class": 1,
+            "quality": 21,
+            "random_weight": {
+                "min": 20,
+                "max": 50
+            },
+            "price": {
+                "min": 50,
+                "max": 85
+            },
+            "effect_pool": [
+                1,
+                2,
+                4,
+                5
+            ]
+        },
+        {
+            "id": 1002,
+            "class": 1,
+            "quality": 15,
+            "random_weight": {
+                "min": 5,
+                "max": 15
+            },
+            "price": {
+                "min": 55,
+                "max": 105
+            },
+            "effect_pool": [
+                1,
+                4,
+                5
+            ]
+        }
+    ]
+}

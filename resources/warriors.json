@@ -1,0 +1,49 @@
+{
+    "warriors": [
+        {
+            "id": 5001,
+            "special_cards": [
+                100,
+                101
+            ],
+            "hp": 80,
+            "gold": 120,
+            "power": 3,
+            "motion": 2,
+            "view_range": 3,
+            "physique": 50,
+            "draw_count": 6,
+            "deck_status": [
+                100,
+                101,
+                102
+            ],
+            "package_status": [
+                1000,
+                1001
+            ]
+        },
+        {
+            "id": 5002,
+            "special_cards": [
+                102
+            ],
+            "hp": 65,
+            "gold": 120,
+            "power": 3,
+            "motion": 2,
+            "view_range": 4,
+            "physique": 30,
+            "draw_count": 7,
+            "deck_status": [
+                100,
+                101,
+                102
+            ],
+            "package_status": [
+                1000,
+                1001
+            ]
+        }
+    ]
+}

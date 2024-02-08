@@ -1,0 +1,38 @@
+{
+    "effects": [
+        {
+            "id": 1
+        },
+        {
+            "id": 2
+        },
+        {
+            "id": 3
+        },
+        {
+            "id": 4
+        },
+        {
+            "__comment__": "天山童脑",
+            "id": 5,
+            "execution": {
+                "system": 10,
+                "args": [
+                    {
+                        "resource": 1
+                    },
+                    {
+                        "number": 10
+                    }
+                ]
+            },
+            "duration": {
+                "life_point": {
+                    "system": 18,
+                    "point": 3,
+                    "round_recover": true
+                }
+            }
+        }
+    ]
+}

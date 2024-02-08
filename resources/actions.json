@@ -1,0 +1,22 @@
+{
+    "actions": [
+        {
+            "id": 10,
+            "random": true,
+            "effect_pool": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 11,
+            "random": false,
+            "effect_pool": [
+                3,
+                4,
+                5
+            ]
+        }
+    ]
+}

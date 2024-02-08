@@ -1,0 +1,40 @@
+{
+    "enemies": [
+        {
+            "__comment__": "无神论 BOSS",
+            "id": 3000,
+            "rank": 0,
+            "hp": 270,
+            "armor": 30,
+            "loot_pool": [
+                2001,
+                2002,
+                2003
+            ],
+            "action_strategy": {
+                "random": true,
+                "action_pool": [
+                    10
+                ]
+            }
+        },
+        {
+            "__comment__": "天残脚 BOSS",
+            "id": 3001,
+            "rank": 1,
+            "hp": 370,
+            "shield": 50,
+            "defense": 3,
+            "loot_pool": [
+                2002
+            ],
+            "action_strategy": {
+                "random": false,
+                "action_pool": [
+                    10,
+                    11
+                ]
+            }
+        }
+    ]
+}

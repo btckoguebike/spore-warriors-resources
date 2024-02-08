@@ -1,0 +1,148 @@
+{
+    "scenes": [
+        {
+            "id": 7001,
+            "width": 35,
+            "height": 50,
+            "fixed_nodes": [
+                {
+                    "point": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "node": {
+                        "visible": true,
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "instance": {
+                            "starting_point": null
+                        }
+                    }
+                }
+            ],
+            "partition_list": [
+                {
+                    "__comment__": "[1-1] 分区",
+                    "start_point": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "end_point": {
+                        "x": 34,
+                        "y": 20
+                    },
+                    "count": {
+                        "min": 1,
+                        "max": 2
+                    },
+                    "node_pool": [
+                        {
+                            "visible": false,
+                            "size": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "instance": {
+                                "unknown": {
+                                    "count": 1,
+                                    "system_pool": [
+                                        {
+                                            "system": 34,
+                                            "args": [
+                                                {
+                                                    "number": 10
+                                                },
+                                                {
+                                                    "random": {
+                                                        "min": 20,
+                                                        "max": 40
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "visible": false,
+                            "size": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "instance": {
+                                "unknown": {
+                                    "count": 2,
+                                    "system_pool": [
+                                        {
+                                            "system": 34,
+                                            "args": [
+                                                {
+                                                    "number": 10
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "system": 14,
+                                            "args": [
+                                                {
+                                                    "number": 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "__comment__": "[1-2] 分区",
+                    "start_point": {
+                        "x": 0,
+                        "y": 20
+                    },
+                    "end_point": {
+                        "x": 34,
+                        "y": 40
+                    },
+                    "count": {
+                        "min": 1,
+                        "max": 2
+                    },
+                    "node_pool": [
+                        {
+                            "visible": true,
+                            "size": {
+                                "x": 2,
+                                "y": 2
+                            },
+                            "instance": {
+                                "recover_point": 50
+                            }
+                        },
+                        {
+                            "visible": true,
+                            "size": {
+                                "x": 1,
+                                "y": 2
+                            },
+                            "instance": {
+                                "merchant": {
+                                    "count": 3,
+                                    "item_pool": [
+                                        1001,
+                                        1002,
+                                        1000
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

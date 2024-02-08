@@ -1,0 +1,83 @@
+{
+    "loots": [
+        {
+            "id": 2001,
+            "gold": {
+                "min": 20,
+                "max": 50
+            },
+            "score": {
+                "context": {
+                    "system": 10,
+                    "args": [
+                        {
+                            "number": 100
+                        }
+                    ]
+                }
+            },
+            "card_pool": {
+                "size": 1,
+                "item_pool": [
+                    1000,
+                    1001
+                ]
+            }
+        },
+        {
+            "id": 2002,
+            "gold": {
+                "min": 50,
+                "max": 100
+            },
+            "score": {
+                "context": {
+                    "system": 15,
+                    "args": [
+                        {
+                            "number": 10
+                        }
+                    ]
+                }
+            },
+            "card_pool": {
+                "size": 2,
+                "item_pool": [
+                    1000,
+                    1001
+                ]
+            },
+            "props_pool": {
+                "size": 1,
+                "item_pool": [
+                    1000
+                ]
+            }
+        },
+        {
+            "id": 2003,
+            "gold": {
+                "min": 150,
+                "max": 200
+            },
+            "score": {
+                "random": {
+                    "min": 10,
+                    "max": 15
+                }
+            },
+            "card_pool": {
+                "size": 1,
+                "item_pool": [
+                    1001
+                ]
+            },
+            "equipment_pool": {
+                "size": 1,
+                "item_pool": [
+                    1002
+                ]
+            }
+        }
+    ]
+}
