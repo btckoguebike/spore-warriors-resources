@@ -12,7 +12,7 @@
                 2003
             ],
             "action_strategy": {
-                "random": true,
+                "random": false,
                 "action_pool": [
                     10
                 ]
@@ -29,7 +29,7 @@
                 2002
             ],
             "action_strategy": {
-                "random": false,
+                "random": true,
                 "action_pool": [
                     10,
                     11

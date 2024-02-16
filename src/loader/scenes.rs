@@ -139,6 +139,7 @@ impl From<NodeInstance> for generated::NodeInstance {
 #[derive(Deserialize, Debug)]
 pub struct LevelNode {
     pub visible: bool,
+    #[serde(default)]
     pub size: GridSize,
     pub instance: NodeInstance,
 }

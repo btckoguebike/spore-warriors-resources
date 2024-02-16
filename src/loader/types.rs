@@ -64,7 +64,7 @@ impl From<Random<u8>> for generated::RandomByte {
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Default)]
 pub struct GridSize {
     pub x: u8,
     pub y: u8,
@@ -120,6 +120,8 @@ impl From<Value> for generated::Value {
 
 #[derive(Deserialize, Debug)]
 pub struct Context {
+    #[serde(default)]
+    pub target_position: u8,
     pub system: u16,
     pub args: Vec<Value>,
 }
@@ -131,44 +133,9 @@ impl From<Context> for generated::Context {
             .set(value.args.into_iter().map(Into::into).collect())
             .build();
         generated::Context::new_builder()
+            .target_position(value.target_position.into())
             .system_id(convert_u16!(system_id, SystemId))
             .args(args)
             .build()
-    }
-}
-
-#[derive(Deserialize, Debug)]
-pub struct LifePoint {
-    pub system: u16,
-    pub point: u8,
-    pub round_recover: bool,
-}
-
-impl From<LifePoint> for generated::LifePoint {
-    fn from(value: LifePoint) -> Self {
-        let system_id = value.system;
-        Self::new_builder()
-            .listen_system_id(convert_u16!(system_id, SystemId))
-            .point(value.point.into())
-            .round_recover((value.round_recover as u8).into())
-            .build()
-    }
-}
-
-#[derive(Deserialize, Debug)]
-pub enum Duration {
-    #[serde(alias = "round")]
-    Round(u16),
-    #[serde(alias = "life_point")]
-    LifePoint(LifePoint),
-}
-
-impl From<Duration> for generated::Duration {
-    fn from(value: Duration) -> Self {
-        let union = match value {
-            Duration::LifePoint(v) => generated::DurationUnion::LifePoint(v.into()),
-            Duration::Round(v) => generated::DurationUnion::Number(convert_u16!(v, Number)),
-        };
-        Self::new_builder().set(union).build()
     }
 }

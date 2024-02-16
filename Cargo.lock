@@ -117,7 +117,7 @@ dependencies = [
 [[package]]
 name = "spore-warriors-generated"
 version = "0.1.0"
-source = "git+https://github.com/btckoguebike/spore-warriors-contract#2b880f2809de3d85b895df45fc80b0ad808eb06f"
+source = "git+https://github.com/btckoguebike/spore-warriors-contract#45673128622a853f1bdb32a99156bac78595ee43"
 dependencies = [
  "molecule",
 ]
@@ -135,9 +135,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.48"
+version = "2.0.49"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f3531638e407dfc0814761abb7c00a5b54992b849452a0646b7f65c9f770f3f"
+checksum = "915aea9e586f80826ee59f8453c1101f9d1c4b3964cd2460185ee8e299ada496"
 dependencies = [
  "proc-macro2",
  "quote",

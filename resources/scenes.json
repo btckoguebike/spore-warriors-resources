@@ -8,14 +8,10 @@
                 {
                     "point": {
                         "x": 1,
-                        "y": 1
+                        "y": 0
                     },
                     "node": {
                         "visible": true,
-                        "size": {
-                            "x": 1,
-                            "y": 1
-                        },
                         "instance": {
                             "starting_point": null
                         }
@@ -40,16 +36,12 @@
                     "node_pool": [
                         {
                             "visible": false,
-                            "size": {
-                                "x": 1,
-                                "y": 1
-                            },
                             "instance": {
                                 "unknown": {
                                     "count": 1,
                                     "system_pool": [
                                         {
-                                            "system": 34,
+                                            "system": 1,
                                             "args": [
                                                 {
                                                     "number": 10
@@ -68,16 +60,12 @@
                         },
                         {
                             "visible": false,
-                            "size": {
-                                "x": 1,
-                                "y": 1
-                            },
                             "instance": {
                                 "unknown": {
                                     "count": 2,
                                     "system_pool": [
                                         {
-                                            "system": 34,
+                                            "system": 0,
                                             "args": [
                                                 {
                                                     "number": 10
@@ -85,7 +73,7 @@
                                             ]
                                         },
                                         {
-                                            "system": 14,
+                                            "system": 0,
                                             "args": [
                                                 {
                                                     "number": 1
@@ -116,8 +104,8 @@
                         {
                             "visible": true,
                             "size": {
-                                "x": 2,
-                                "y": 2
+                                "x": 1,
+                                "y": 1
                             },
                             "instance": {
                                 "recover_point": 50
@@ -126,8 +114,8 @@
                         {
                             "visible": true,
                             "size": {
-                                "x": 1,
-                                "y": 2
+                                "x": 0,
+                                "y": 1
                             },
                             "instance": {
                                 "merchant": {

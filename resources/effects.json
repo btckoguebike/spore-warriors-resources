@@ -2,37 +2,8 @@
     "effects": [
         {
             "id": 1,
-            "trigger": {
-                "system": 13,
-                "args": [
-                    {
-                        "number": 155
-                    }
-                ]
-            }
-        },
-        {
-            "id": 2,
-            "trigger": {
-                "system": 2,
-                "args": []
-            },
-            "duration": {
-                "round": 3
-            }
-        },
-        {
-            "id": 3,
-            "trigger": {
-                "system": 20,
-                "args": [
-                    {
-                        "resource": 2
-                    }
-                ]
-            },
-            "discard": {
-                "system": 21,
+            "execution": {
+                "system": 0,
                 "args": [
                     {
                         "number": 5
@@ -41,31 +12,42 @@
             }
         },
         {
-            "id": 4,
-            "duration": {
-                "round": 10
-            }
-        },
-        {
-            "__comment__": "天山童脑",
-            "id": 5,
+            "id": 2,
             "execution": {
-                "system": 10,
+                "system": 0,
                 "args": [
-                    {
-                        "resource": 1
-                    },
                     {
                         "number": 10
                     }
                 ]
-            },
-            "duration": {
-                "life_point": {
-                    "system": 18,
-                    "point": 3,
-                    "round_recover": true
-                }
+            }
+        },
+        {
+            "id": 3,
+            "execution": {
+                "system": 1,
+                "args": [
+                    {
+                        "number": 5
+                    },
+                    {
+                        "number": 5
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "execution": {
+                "system": 1,
+                "args": [
+                    {
+                        "number": 5
+                    },
+                    {
+                        "number": 3
+                    }
+                ]
             }
         }
     ]

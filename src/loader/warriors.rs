@@ -56,6 +56,8 @@ impl From<Warrior> for generated::Warrior {
             .attack_weak(value.attack_weak.into())
             .defense(value.defense.into())
             .defense_weak(value.defense_weak.into())
+            .physique(value.physique.into())
+            .draw_count(value.draw_count.into())
             .deck_status(convert_vec!(deck_status, ResourceId, ResourceIdVec))
             .package_status(convert_vec!(package_status, ResourceId, ResourceIdVec))
             .build()

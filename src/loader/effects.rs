@@ -5,7 +5,7 @@ use spore_warriors_generated as generated;
 use std::path::PathBuf;
 use std::{fmt::Debug, fs};
 
-use super::types::{Context, Duration};
+use super::types::Context;
 use crate::{convert_opt, convert_u16, convert_vec};
 
 #[derive(Deserialize, Debug)]
@@ -14,7 +14,6 @@ pub struct Effect {
     pub trigger: Option<Context>,
     pub execution: Option<Context>,
     pub discard: Option<Context>,
-    pub duration: Option<Duration>,
 }
 
 impl From<Effect> for generated::Effect {
@@ -24,14 +23,12 @@ impl From<Effect> for generated::Effect {
             trigger,
             execution,
             discard,
-            duration,
         } = value;
         Self::new_builder()
             .id(convert_u16!(id, ResourceId))
             .trigger(convert_opt!(trigger, ContextOpt))
             .execution(convert_opt!(execution, ContextOpt))
             .discard(convert_opt!(discard, ContextOpt))
-            .duration(convert_opt!(duration, DurationOpt))
             .build()
     }
 }

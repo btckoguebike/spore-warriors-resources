@@ -12,7 +12,7 @@
             "motion": 2,
             "view_range": 3,
             "physique": 50,
-            "draw_count": 6,
+            "draw_count": 2,
             "deck_status": [
                 100,
                 101,
@@ -34,7 +34,7 @@
             "motion": 2,
             "view_range": 4,
             "physique": 30,
-            "draw_count": 7,
+            "draw_count": 1,
             "deck_status": [
                 100,
                 101,

@@ -6,16 +6,16 @@
             "effect_pool": [
                 1,
                 2,
-                3
+                3,
+                4
             ]
         },
         {
             "id": 11,
             "random": false,
             "effect_pool": [
-                3,
-                4,
-                5
+                1,
+                3
             ]
         }
     ]
