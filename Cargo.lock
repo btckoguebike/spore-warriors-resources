@@ -117,7 +117,7 @@ dependencies = [
 [[package]]
 name = "spore-warriors-generated"
 version = "0.1.0"
-source = "git+https://github.com/btckoguebike/spore-warriors-contract#45673128622a853f1bdb32a99156bac78595ee43"
+source = "git+https://github.com/btckoguebike/spore-warriors-contract#ba0fbd0f28be35f348803f46f20e0af90d174d6c"
 dependencies = [
  "molecule",
 ]

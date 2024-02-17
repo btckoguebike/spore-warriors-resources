@@ -50,19 +50,36 @@ impl From<NodeTreasureChest> for generated::NodeInstanceUnion {
 }
 
 #[derive(Deserialize, Debug)]
-pub struct NodeMerchant {
+pub struct NodeItemMerchant {
     pub count: u8,
     pub item_pool: Vec<u16>,
 }
 
-impl From<NodeMerchant> for generated::NodeInstanceUnion {
-    fn from(value: NodeMerchant) -> Self {
-        let NodeMerchant { count, item_pool } = value;
-        let node = generated::NodeMerchant::new_builder()
+impl From<NodeItemMerchant> for generated::NodeInstanceUnion {
+    fn from(value: NodeItemMerchant) -> Self {
+        let NodeItemMerchant { count, item_pool } = value;
+        let node = generated::NodeItemMerchant::new_builder()
             .count(count.into())
             .item_pool(convert_vec!(item_pool, ResourceId, ResourceIdVec))
             .build();
-        generated::NodeInstanceUnion::NodeMerchant(node)
+        generated::NodeInstanceUnion::NodeItemMerchant(node)
+    }
+}
+
+#[derive(Deserialize, Debug)]
+pub struct NodeCardMerchant {
+    pub count: u8,
+    pub card_pool: Vec<u16>,
+}
+
+impl From<NodeCardMerchant> for generated::NodeInstanceUnion {
+    fn from(value: NodeCardMerchant) -> Self {
+        let NodeCardMerchant { count, card_pool } = value;
+        let node = generated::NodeCardMerchant::new_builder()
+            .count(count.into())
+            .card_pool(convert_vec!(card_pool, ResourceId, ResourceIdVec))
+            .build();
+        generated::NodeInstanceUnion::NodeCardMerchant(node)
     }
 }
 
@@ -91,8 +108,10 @@ pub enum NodeInstance {
     TreasureChest(NodeTreasureChest),
     #[serde(alias = "recover_point")]
     RecoverPoint(u8),
-    #[serde(alias = "merchant")]
-    Merchant(NodeMerchant),
+    #[serde(alias = "item_merchant")]
+    ItemMerchant(NodeItemMerchant),
+    #[serde(alias = "card_merchant")]
+    CardMerchant(NodeCardMerchant),
     #[serde(alias = "unknown")]
     Unknown(NodeUnknown),
     #[serde(alias = "campsite")]
@@ -115,7 +134,8 @@ impl From<NodeInstance> for generated::NodeInstance {
                     .hp_percent(v.into())
                     .build(),
             ),
-            NodeInstance::Merchant(v) => v.into(),
+            NodeInstance::ItemMerchant(v) => v.into(),
+            NodeInstance::CardMerchant(v) => v.into(),
             NodeInstance::Unknown(v) => v.into(),
             NodeInstance::Campsite(v) => generated::NodeInstanceUnion::NodeCampsite(
                 generated::NodeCampsite::new_builder()

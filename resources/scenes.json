@@ -118,7 +118,7 @@
                                 "y": 1
                             },
                             "instance": {
-                                "merchant": {
+                                "item_merchant": {
                                     "count": 3,
                                     "item_pool": [
                                         1001,
