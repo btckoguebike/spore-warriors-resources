@@ -7,7 +7,7 @@ use std::path::PathBuf;
 
 use crate::{convert_u16, convert_vec};
 
-use super::types::{Context, Coordinate, GridSize, Random};
+use super::types::{Coordinate, GridSize, Random};
 
 #[derive(Deserialize, Debug)]
 pub struct NodeEnemy {
@@ -86,7 +86,7 @@ impl From<NodeCardMerchant> for generated::NodeInstanceUnion {
 #[derive(Deserialize, Debug)]
 pub struct NodeUnknown {
     pub count: u8,
-    pub system_pool: Vec<Context>,
+    pub system_pool: Vec<u16>,
 }
 
 impl From<NodeUnknown> for generated::NodeInstanceUnion {
@@ -94,7 +94,7 @@ impl From<NodeUnknown> for generated::NodeInstanceUnion {
         let NodeUnknown { count, system_pool } = value;
         let node = generated::NodeUnknown::new_builder()
             .count(count.into())
-            .system_pool(convert_vec!(system_pool, ContextVec))
+            .system_pool(convert_vec!(system_pool, ResourceId, ResourceIdVec))
             .build();
         generated::NodeInstanceUnion::NodeUnknown(node)
     }
@@ -115,7 +115,7 @@ pub enum NodeInstance {
     #[serde(alias = "unknown")]
     Unknown(NodeUnknown),
     #[serde(alias = "campsite")]
-    Campsite(Context),
+    Campsite(u16),
     #[serde(alias = "barrier")]
     Barrier,
     #[serde(alias = "starting_point")]
@@ -139,7 +139,7 @@ impl From<NodeInstance> for generated::NodeInstance {
             NodeInstance::Unknown(v) => v.into(),
             NodeInstance::Campsite(v) => generated::NodeInstanceUnion::NodeCampsite(
                 generated::NodeCampsite::new_builder()
-                    .card_context(v.into())
+                    .card_system(convert_u16!(v, ResourceId))
                     .build(),
             ),
             NodeInstance::Barrier => {

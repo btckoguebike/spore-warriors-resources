@@ -14,7 +14,7 @@ pub struct Card {
     pub class: u8,
     pub power_cost: u8,
     pub price: Random<u16>,
-    pub effect_pool: Vec<u16>,
+    pub system_pool: Vec<u16>,
 }
 
 impl From<Card> for generated::Card {
@@ -24,14 +24,14 @@ impl From<Card> for generated::Card {
             class,
             power_cost,
             price,
-            effect_pool,
+            system_pool,
         } = value;
         Self::new_builder()
             .id(convert_u16!(id, ResourceId))
             .class(class.into())
             .cost(power_cost.into())
             .price(price.into())
-            .effect_pool(convert_vec!(effect_pool, ResourceId, ResourceIdVec))
+            .system_pool(convert_vec!(system_pool, ResourceId, ResourceIdVec))
             .build()
     }
 }

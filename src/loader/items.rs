@@ -15,7 +15,7 @@ pub struct Item {
     pub quality: u8,
     pub random_weight: Random<u8>,
     pub price: Random<u16>,
-    pub effect_pool: Vec<u16>,
+    pub system_pool: Vec<u16>,
 }
 
 impl From<Item> for generated::Item {
@@ -26,7 +26,7 @@ impl From<Item> for generated::Item {
             quality,
             random_weight,
             price,
-            effect_pool,
+            system_pool,
         } = value;
         Self::new_builder()
             .id(convert_u16!(id, ResourceId))
@@ -34,7 +34,7 @@ impl From<Item> for generated::Item {
             .quality(quality.into())
             .random_weight(random_weight.into())
             .price(price.into())
-            .effect_pool(convert_vec!(effect_pool, ResourceId, ResourceIdVec))
+            .system_pool(convert_vec!(system_pool, ResourceId, ResourceIdVec))
             .build()
     }
 }

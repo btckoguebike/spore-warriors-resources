@@ -5,26 +5,8 @@ use spore_warriors_generated as generated;
 use std::fs;
 use std::path::PathBuf;
 
-use super::types::{Context, Random};
+use crate::loader::types::Random;
 use crate::{convert_opt, convert_u16, convert_vec};
-
-#[derive(Deserialize, Debug)]
-pub enum Score {
-    #[serde(alias = "context")]
-    Context(Context),
-    #[serde(alias = "random")]
-    Random(Random<u16>),
-}
-
-impl From<Score> for generated::Score {
-    fn from(value: Score) -> Self {
-        let union = match value {
-            Score::Context(v) => generated::ScoreUnion::Context(v.into()),
-            Score::Random(v) => generated::ScoreUnion::RandomNumber(v.into()),
-        };
-        Self::new_builder().set(union).build()
-    }
-}
 
 #[derive(Deserialize, Debug)]
 pub struct Package {
@@ -46,7 +28,7 @@ impl From<Package> for generated::Package {
 pub struct Loot {
     pub id: u16,
     pub gold: Random<u16>,
-    pub score: Score,
+    pub score: Random<u16>,
     pub card_pool: Package,
     pub props_pool: Option<Package>,
     pub equipment_pool: Option<Package>,

@@ -11,7 +11,7 @@ use crate::{convert_u16, convert_vec};
 pub struct Action {
     pub id: u16,
     pub random: bool,
-    pub effect_pool: Vec<u16>,
+    pub system_pool: Vec<u16>,
 }
 
 impl From<Action> for generated::Action {
@@ -19,12 +19,12 @@ impl From<Action> for generated::Action {
         let Action {
             id,
             random,
-            effect_pool,
+            system_pool,
         } = value;
         Self::new_builder()
             .id(convert_u16!(id, ResourceId))
             .random((random as u8).into())
-            .effect_pool(convert_vec!(effect_pool, ResourceId, ResourceIdVec))
+            .system_pool(convert_vec!(system_pool, ResourceId, ResourceIdVec))
             .build()
     }
 }

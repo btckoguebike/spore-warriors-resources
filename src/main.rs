@@ -14,7 +14,7 @@ macro_rules! json_parse {
 fn main() {
     let action_pool = json_parse!(ActionPool, "actions");
     let card_pool = json_parse!(CardPool, "cards");
-    let effect_pool = json_parse!(EffectPool, "effects");
+    let system_pool = json_parse!(SystemPool, "systems");
     let enemy_pool = json_parse!(EnemyPool, "enemies");
     let loot_pool = json_parse!(LootPool, "loots");
     let scene_pool = json_parse!(ScenePool, "scenes");
@@ -23,7 +23,7 @@ fn main() {
     let resource_pool = generated::ResourcePool::new_builder()
         .action_pool(action_pool.into())
         .card_pool(card_pool.into())
-        .effect_pool(effect_pool.into())
+        .system_pool(system_pool.into())
         .enemy_pool(enemy_pool.into())
         .loot_pool(loot_pool.into())
         .scene_pool(scene_pool.into())

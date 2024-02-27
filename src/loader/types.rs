@@ -96,10 +96,6 @@ impl From<Coordinate> for generated::Coordinate {
 
 #[derive(Deserialize, Debug)]
 pub enum Value {
-    #[serde(alias = "resource")]
-    Resource(u16),
-    #[serde(alias = "system")]
-    System(u16),
     #[serde(alias = "number")]
     Number(u16),
     #[serde(alias = "random")]
@@ -109,33 +105,10 @@ pub enum Value {
 impl From<Value> for generated::Value {
     fn from(value: Value) -> Self {
         let union = match value {
-            Value::System(v) => generated::ValueUnion::SystemId(convert_u16!(v, SystemId)),
             Value::Number(v) => generated::ValueUnion::Number(convert_u16!(v, Number)),
-            Value::Resource(v) => generated::ValueUnion::ResourceId(convert_u16!(v, ResourceId)),
             Value::Random(v) => generated::ValueUnion::RandomNumber(v.into()),
         };
         Self::new_builder().set(union).build()
     }
 }
 
-#[derive(Deserialize, Debug)]
-pub struct Context {
-    #[serde(default)]
-    pub target_position: u8,
-    pub system: u16,
-    pub args: Vec<Value>,
-}
-
-impl From<Context> for generated::Context {
-    fn from(value: Context) -> Self {
-        let system_id = value.system;
-        let args = generated::ValueVec::new_builder()
-            .set(value.args.into_iter().map(Into::into).collect())
-            .build();
-        generated::Context::new_builder()
-            .target_position(value.target_position.into())
-            .system_id(convert_u16!(system_id, SystemId))
-            .args(args)
-            .build()
-    }
-}

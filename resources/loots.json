@@ -7,14 +7,8 @@
                 "max": 50
             },
             "score": {
-                "context": {
-                    "system": 0,
-                    "args": [
-                        {
-                            "number": 100
-                        }
-                    ]
-                }
+                "min": 20,
+                "max": 50
             },
             "card_pool": {
                 "size": 1,
@@ -31,14 +25,8 @@
                 "max": 100
             },
             "score": {
-                "context": {
-                    "system": 1,
-                    "args": [
-                        {
-                            "number": 10
-                        }
-                    ]
-                }
+                "min": 50,
+                "max": 100
             },
             "card_pool": {
                 "size": 2,
@@ -61,10 +49,8 @@
                 "max": 200
             },
             "score": {
-                "random": {
-                    "min": 10,
-                    "max": 15
-                }
+                "min": 10,
+                "max": 15
             },
             "card_pool": {
                 "size": 1,
