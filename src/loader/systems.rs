@@ -6,7 +6,22 @@ use std::path::PathBuf;
 use std::{fmt::Debug, fs};
 
 use crate::loader::types::Value;
-use crate::{convert_u16, convert_vec};
+use crate::{convert_opt, convert_u16, convert_vec};
+
+#[derive(Deserialize, Debug)]
+pub struct Duration {
+    pub trigger: u8,
+    pub count: u8,
+}
+
+impl From<Duration> for generated::Duration {
+    fn from(value: Duration) -> Self {
+        generated::Duration::new_builder()
+            .trigger(value.trigger.into())
+            .count(value.count.into())
+            .build()
+    }
+}
 
 #[derive(Deserialize, Debug)]
 pub struct System {
@@ -16,6 +31,7 @@ pub struct System {
     #[serde(default)]
     pub target_type: u8,
     pub args: Vec<Value>,
+    pub duration: Option<Duration>,
 }
 
 impl From<System> for generated::System {
@@ -25,11 +41,13 @@ impl From<System> for generated::System {
         let args = generated::ValueVec::new_builder()
             .set(value.args.into_iter().map(Into::into).collect())
             .build();
+        let duration = value.duration;
         generated::System::new_builder()
             .id(convert_u16!(id, ResourceId))
             .system_id(convert_u16!(system_id, SystemId))
             .target_type(value.target_type.into())
             .args(args)
+            .duration(convert_opt!(duration, DurationOpt))
             .build()
     }
 }
