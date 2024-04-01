@@ -19,6 +19,7 @@ fn main() {
     let loot_pool = json_parse!(LootPool, "loots");
     let scene_pool = json_parse!(ScenePool, "scenes");
     let warrior_pool = json_parse!(WarriorPool, "warriors");
+    let item_pool = json_parse!(ItemPool, "items");
 
     let resource_pool = generated::ResourcePool::new_builder()
         .action_pool(action_pool.into())
@@ -28,6 +29,7 @@ fn main() {
         .loot_pool(loot_pool.into())
         .scene_pool(scene_pool.into())
         .warrior_pool(warrior_pool.into())
+        .item_pool(item_pool.into())
         .build();
 
     std::fs::write("./resources.bin", resource_pool.as_bytes()).expect("persistence");
