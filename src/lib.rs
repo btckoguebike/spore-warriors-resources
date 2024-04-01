@@ -4,7 +4,7 @@ use loader::{
 use molecule::prelude::{Builder, Entity};
 use spore_warriors_generated as generated;
 
-mod loader;
+pub mod loader;
 
 pub fn generate_resource_binary(
     action_pool: ActionPool,
